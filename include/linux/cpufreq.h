@@ -536,6 +536,7 @@ extern struct cpufreq_governor cpufreq_gov_sched;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL)
 extern struct cpufreq_governor cpufreq_gov_schedutil;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_schedutil)
+<<<<<<< HEAD
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_CHILL)
 extern struct cpufreq_governor cpufreq_gov_chill;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_chill)
@@ -544,6 +545,11 @@ extern struct cpufreq_governor cpufreq_gov_relaxed;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_relaxed)
 extern struct cpufreq_governor cpufreq_gov_darkness;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_darkness)
+=======
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_BLU_ACTIVE)
+extern struct cpufreq_governor cpufreq_gov_blu_active;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_blu_active)
+>>>>>>> 699d0c0c2cee... cpufreq: Add blu_active: dynamic cpufreq policy governor designed for latency-sensitive workloads
 #endif
 
 static inline void cpufreq_policy_apply_limits(struct cpufreq_policy *policy)
