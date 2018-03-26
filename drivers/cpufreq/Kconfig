@@ -121,6 +121,15 @@ config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
 	  frequency lookup tables and optimized scaling triggers instead of
 	  % frequency steps to get smooth up/downscaling dependant on CPU load.
 
+config CPU_FREQ_DEFAULT_GOV_CLARITY
+	bool "clarity"
+	select CPU_FREQ_GOV_CLARITY
+	help
+	  Use the CPUFreq governor 'clarity' as default. This allows
+	  you to get a full dynamic cpu frequency capable system by simply
+	  loading your cpufreq low-level hardware driver, using the
+	  'clarity' governor for latency-sensitive workloads.
+
 config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	bool "interactive"
 	select CPU_FREQ_GOV_INTERACTIVE
@@ -266,8 +275,13 @@ config CPU_FREQ_GOV_ONDEMAND
 
 	  If in doubt, say N.
 
-config CPU_FREQ_GOV_DARKNESS
-	tristate "'darkness' cpufreq policy governor"
+config CPU_FREQ_GOV_CLARITY
+	bool "'clarity' cpufreq policy governor"
+	help
+	  'clarity' - This driver adds a dynamic cpufreq policy governor
+	  designed for latency-sensitive workloads.
+
+	  If in doubt, say N.
 
 config CPU_FREQ_GOV_INTERACTIVE
 	bool "'interactive' cpufreq policy governor"
