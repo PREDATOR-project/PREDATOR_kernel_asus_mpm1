@@ -30,7 +30,7 @@
 #include <linux/workqueue.h>
 #include <linux/kthread.h>
 #include <linux/slab.h>
-#include <linux/display_state.h>
+#include <linux/state_notifier.h>
 
 struct cpufreq_cultivation_cpuinfo {
 	struct timer_list cpu_timer;
@@ -394,7 +394,6 @@ static void cpufreq_cultivation_timer(unsigned long data)
 	unsigned long flags;
 	u64 max_fvtime;
 	struct cpufreq_govinfo int_info;
-	bool display_on = is_display_on();
 
 	if (!down_read_trylock(&pcpu->enable_sem))
 		return;
